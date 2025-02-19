@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movix</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/view_movies.css')}}">
+</head>
+<body>
+    <h1>All Movies</h1>
+    <a href="{{url_for('movies.add_movie')}}" class="btn">Add New Movie</a>
+
+    <ul>
+        {% for movie in movies %}
+        <li>
+            <h2>{{ movie.title }}</h2>
+            <p>{{ movie.description }}</p>
+            <p><strong>Genre:</strong> {{ movie.genre }} | <strong>Release Date:</strong> {{ movie.release_date }}</p>
+            <a href="{{ url_for('movies.edit_movie', movie_id=movie.id) }}" class="btn">Edit</a>
+            <form action="{{ url_for('movies.delete_movie', movie_id=movie.id) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{url_for('auth.logout')}}" class="btn">Logout</a>
+</body>
+</html>

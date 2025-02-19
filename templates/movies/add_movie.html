@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movix</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/add_movie.css')}}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>Add A New Movie</h1>
+    <form method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+
+        <label for="release_date">Release Date:</label>
+        <input type="date" id="release_date" name="release_date" required>
+        <br>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required>
+        <br>
+
+        <button type="submit">Add Movie</button>
+    </form>
+</body>
+</html>
