@@ -49,7 +49,6 @@ python app.py
 ## Project Structure
 ``` bash
 movie-booking-system/
-│
 ├── app.py
 ├── config.py
 ├── extensions.py
@@ -59,6 +58,9 @@ movie-booking-system/
 ├── routes/
 │   ├── authRoutes.py
 │   └── movieRoutes.py
+├── serializers/
+│   ├── userSerializer.py
+│   ├── movieSerializer.py
 ├── templates/
 │   ├── home.html
 │   ├── auth/
